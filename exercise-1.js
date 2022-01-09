@@ -48,4 +48,19 @@ for (let r of rem){
     document.body.removeChild(r);
 }
 
-// document.body.removeChild(rem[0]);
+// 1.3 Utiliza el array para crear dinamicamente una lista ul > li de elementos 
+// en el div de html con el atributo data-function="printHere".
+// const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
+
+const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
+const carList = document.createElement("ul");
+
+for (car of cars){
+    const li = document.createElement('li');
+
+    li.innerHTML = car;
+    carList.appendChild(li);
+}
+
+
+myDiv.appendChild(carList);
