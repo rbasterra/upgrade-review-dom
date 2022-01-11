@@ -64,3 +64,48 @@ for (car of cars){
 
 
 myDiv.appendChild(carList);
+
+
+// 1.4 Crea dinamicamente en el html una lista de div que contenga un elemento 
+// h4 para el titulo y otro elemento img para la imagen.
+const pictures = [
+	{title: 'title 1', imgUrl: 'https://picsum.photos/300/200?random=1'}, 
+	{title: 'title 2', imgUrl: 'https://picsum.photos/300/200?random=2'},
+	{title: 'title 3', imgUrl: 'https://picsum.photos/300/200?random=3'},
+	{title: 'title 4', imgUrl: 'https://picsum.photos/300/200?random=4'},
+	{title: 'title 5', imgUrl: 'https://picsum.photos/300/200?random=5'}
+];
+
+for (const picture of pictures){
+    let pictureItem = document.createElement('div');
+    pictureItem.innerHTML = `<h4>${picture.title}</h4><img src=${picture.imgUrl}/>`;
+
+    let delButton = document.createElement('button');
+
+    delButton.innerText = 'Delete item';
+
+    pictureItem.appendChild(delButton);
+
+    delButton.addEventListener("click",function(){
+        pictureItem.remove();
+    })
+
+    document.body.appendChild(pictureItem);
+}
+
+// 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último 
+// elemento de la lista.
+
+
+
+document.getElementById('btnToClick').addEventListener('click',function(){
+    // let myUl = document.querySelectorAll('ul');
+    // myUl[myUl.length-1].removeChild(myUl[myUl.length-1].lastElementChild);
+    let selectDivs = document.querySelectorAll('div');
+    selectDivs[selectDivs.length-1].remove();
+});
+
+// 1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los 
+// elementos de las listas que elimine ese mismo elemento del html.
+
+//implementado junto con el 1.4
